@@ -12,9 +12,7 @@ Location: {location}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const message = `||||||||||||||||||||||||||||||||
-||||New Registration Request||||
-||||||||||||||||||||||||||||||||
+    const message = `New Registration Request
 
 Name: ${formData.name}
 Phone: ${formData.phone}
