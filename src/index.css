@@ -4,10 +4,9 @@
 :root[data-theme="light"] {
   --bg-main: #f4fafb;
   --bg-gradient: linear-gradient(135deg, #e0f7fa 0%, #f4fafb 50%, #e8f5e9 100%);
-  --text-primary: #1b2e28; /* Deep Charcoal Green */
-  --text-muted: #4a635a;
+  --text-primary: #1b2e28;
+  --text-muted: #;
   
-  /* Glassmorphism Configuration */
   --glass-bg: rgba(255, 255, 255, 0.65);
   --glass-border: rgba(79, 195, 247, 0.25);
   --glass-blur: blur(12px);
@@ -21,33 +20,34 @@
   
   --shadow-layered: 0 4px 30px rgba(27, 67, 50, 0.03);
   --shadow-hover: 0 20px 40px rgba(27, 67, 50, 0.08);
+  --highlight-bg: rgba(79, 195, 247, 0.15);
 }
 
 :root[data-theme="dark"] {
-  --bg-main: #070d0b;
-  --bg-gradient: linear-gradient(135deg, #041012 0%, #070d0b 60%, #03120b 100%);
+  --bg-main: #06120e;
+  /* Upgraded Premium Dark Sky Forest Multi-Stop Gradient */
+  --bg-gradient: linear-gradient(145deg, #021114 0%, #071713 40%, #0c2016 75%, #051a24 100%);
   
-  /* Enhanced High-Contrast Typography for Dark Theme */
   --text-primary: #ffffff; 
-  --text-muted: #c5d6cf;
+  --text-muted: #cbdad4;
   
-  /* Hardened Glassmorphism Dark Layering */
-  --glass-bg: rgba(20, 35, 30, 0.85);
-  --glass-border: rgba(116, 198, 157, 0.35);
+  --glass-bg: rgba(14, 28, 23, 0.75);
+  --glass-border: rgba(116, 198, 157, 0.3);
   --glass-blur: blur(16px);
   
   --forest-deep: #74c69d;
-  --forest-mid: #52b788;
+  --forest-mid: #40916c;
   --forest-light: #2d6a4f;
   
   --sky-primary: #4fc3f7;
-  --sky-glow: rgba(79, 195, 247, 0.4);
+  --sky-glow: rgba(79, 195, 247, 0.25);
   
-  --shadow-layered: 0 4px 30px rgba(0, 0, 0, 0.6);
-  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.8);
+  --shadow-layered: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 24px 48px rgba(0, 0, 0, 0.7);
+  --highlight-bg: rgba(64, 145, 108, 0.25);
 }
 
-/* Structural Layout Operations */
+/* Base Structural Configurations */
 * {
   box-sizing: border-box;
   transition: background 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), 
@@ -70,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: clamp(2.4rem, 6vw, 4rem); font-weight: 800; }
-h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; margin-bottom: 3.5rem; position: relative; display: inline-block; }
+h2 { font-size: clamp(1.8rem, 4.5vw, 2.8rem); font-weight: 700; margin-bottom: 2.5rem; position: relative; display: inline-block; }
 h2::after {
   content: '';
   position: absolute;
@@ -82,25 +82,49 @@ h2::after {
   border-radius: 20px;
 }
 
-.sports-section {
-  padding: 4rem 1.5rem; /* Reduced from 8rem to 4rem for desktop/mobile consistency */
-}
+.sports-section { padding: 4rem 1.5rem; }
+@media (min-width: 768px) { .sports-section { padding: 5rem 3.5rem; } }
 
-@media (min-width: 768px) {
-  .sports-section {
-    padding: 5rem 3.5rem; /* Reduced from 10rem to 5rem for clean breathing room */
-  }
-}
-
-#home.sports-section {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
+#home.sports-section { padding-top: 5rem; padding-bottom: 5rem; }
 
 .main-container { display: flex; flex-direction: column; width: 100%; }
 @media (min-width: 992px) { .main-container { flex-direction: row; padding-left: 320px; } }
 
-/* Shared Structural Components */
+/* Explicit High-Contrast Navbar Text Binding */
+.sticky-navbar .navbar-brand {
+  color: var(--text-primary) !important;
+}
+
+.sticky-navbar .nav-link {
+  color: var(--text-primary) !important;
+  opacity: 0.9;
+  transition: all 0.25s ease;
+}
+
+/* Maintain distinct visibility during desktop/mobile hover states */
+.sticky-navbar .nav-link:hover, 
+.sticky-navbar .nav-link.active {
+  color: #ffffff !important;
+  background-color: var(--forest-mid) !important;
+  opacity: 1;
+}
+
+/* High Contrast Responsive Mobile Hamburger Icon fix */
+.sticky-navbar .navbar-toggler i {
+  color: var(--text-primary) !important;
+}
+
+/* If you are using a light background translucent blur pattern for the mobile dropdown menu */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: var(--glass-bg);
+    border-radius: 16px;
+    padding: 1rem;
+    margin-top: 0.75rem;
+    border: 1px solid var(--glass-border);
+  }
+}
+
 .sticky-navbar {
   position: sticky; top: 0; z-index: 1030;
   background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
@@ -117,16 +141,62 @@ h2::after {
   border: 1px solid var(--glass-border); border-radius: 24px; padding: 2.5rem; box-shadow: var(--shadow-layered);
   color: var(--text-primary) !important;
 }
-
-.interactive-card:hover {
-  transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(79, 195, 247, 0.5);
-}
-
+.interactive-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); border-color: rgba(79, 195, 247, 0.5); }
 .schedule-hero-card { border-left: 6px solid var(--forest-mid); }
 
 .text-muted { color: var(--text-muted) !important; }
 
-/* Buttons & Elements */
+/* Dynamic Premium Glassmorphism Carousel Frame Setup */
+.carousel-glass-container {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 1rem;
+  box-shadow: var(--shadow-hover);
+  overflow: hidden;
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.carousel-glass-container .carousel-item {
+  height: 340px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .carousel-glass-container .carousel-item { height: 400px; }
+}
+
+.carousel-glass-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-caption-glass {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(6, 18, 14, 0.85) 0%, rgba(6, 18, 14, 0) 100%);
+  padding: 2rem 1.25rem 1.25rem 1.25rem;
+  color: #ffffff !important;
+  text-align: left;
+}
+
+.carousel-caption-glass h5 { color: #ffffff !important; font-weight: 700; margin-bottom: 0.25rem; }
+.carousel-caption-glass p { color: #cbdad4 !important; font-size: 0.85rem; margin-bottom: 0; }
+
+/* Custom Carousel Control Pill Handles */
+.carousel-indicators [data-bs-target] {
+  background-color: var(--sky-primary) !important;
+  width: 10px; height: 10px; border-radius: 50%;
+}
+
 .btn-custom {
   min-height: 50px; padding: 0.75rem 2.5rem; border-radius: 50px; font-weight: 600;
   color: #fff !important; background: linear-gradient(135deg, #0288d1 0%, var(--forest-mid) 100%); border: none;
@@ -137,16 +207,11 @@ h2::after {
   background: rgba(255, 255, 255, 0.6) !important; border: 1px solid var(--glass-border) !important;
   color: var(--text-primary) !important; border-radius: 14px !important; padding: 0.75rem 1.2rem !important;
 }
-[data-theme="dark"] .form-control, [data-theme="dark"] .form-select {
-  background: rgba(10, 20, 15, 0.6) !important;
-}
+[data-theme="dark"] .form-control, [data-theme="dark"] .form-select { background: rgba(14, 28, 23, 0.6) !important; }
 
-/* Full Width Map Architecture */
-.unified-map-container {
-  border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-layered); width: 100%;
-}
+.unified-map-container { border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow-layered); width: 100%; }
 .map-embed-iframe { width: 100%; height: 500px; border: 0; display: block; }
 
-.bg-blob { position: fixed; border-radius: 50%; filter: blur(140px); z-index: -1; opacity: 0.3; pointer-events: none; }
-.blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #e0f7fa; }
-.blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #e8f5e9; }
+.bg-blob { position: fixed; border-radius: 50%; filter: blur(140px); z-index: -1; opacity: 0.15; pointer-events: none; }
+.blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: #4fc3f7; }
+.blob-2 { bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: #2d6a4f; }

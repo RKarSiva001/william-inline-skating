@@ -2,11 +2,11 @@ import React from 'react';
 
 function Schedule() {
   const scheduleData = [
-    { days: "Saturday & Sunday (Weekends)", facility: "Hiranandani Park Hub", target: "Elite Competitive Track", timing: "Morning / Evening Batches" },
     { days: "Tuesday & Wednesday", facility: "Jansen Shrinidhi Villa Ground", target: "Developmental Skill Base", timing: "Evening Intensive" },
     { days: "Tuesday & Wednesday", facility: "Balamudhali Street Track (Kelambakkam)", target: "Speed & Agility Circuit", timing: "Evening Sprint" },
     { days: "Tuesday, Wednesday & Thursday", facility: "Humming Garden Villa Court", target: "Core Foundational Cadet Track", timing: "Late Afternoon Regular" },
-    { days: "Thursday & Friday", facility: "Alta Vida Apartment Arenas", target: "Advanced Performance Bracket", timing: "Night Skating Drill" }
+    { days: "Thursday & Friday", facility: "Alta Vida Apartment Arenas", target: "Advanced Performance Bracket", timing: "Night Skating Drill" },
+    { days: "Saturday & Sunday (Weekends)", facility: "Hiranandani Park Hub", target: "Elite Competitive Track", timing: "Morning / Evening Batches" }
   ];
 
   return (

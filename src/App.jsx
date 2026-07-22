@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
+import HeroCarousel from './components/HeroCarousel'; // Mount new split module
 import About from './components/About';
 import Schedule from './components/Schedule';
 import Pricing from './components/Pricing';
@@ -26,7 +27,6 @@ function App() {
 
   return (
     <div className="app-wrapper">
-      {/* Background Organic Ambient Blobs */}
       <div className="bg-blob blob-1"></div>
       <div className="bg-blob blob-2"></div>
 
@@ -39,6 +39,7 @@ function App() {
       <div className="main-container">
         <main className="w-100">
           <Hero />
+          <HeroCarousel /> {/* Clean separation right below the fold */}
           <About />
           <Schedule />
           <Pricing />

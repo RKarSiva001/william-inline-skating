@@ -2,11 +2,22 @@ import React, { useState } from 'react';
 
 function Contact() {
   const [formData, setFormData] = useState({ name: '', phone: '', location: '' });
+  const whatsappMessage = 
+`--------------------------------
+*William Inline Skating Academy*
+--------------------------------
+Name: {name}
+Phone: {phone}
+Location: {location}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Registration Simulated Successfully!\nName: ${formData.name}\nPhone: ${formData.phone}`);
-    setFormData({ name: '', phone: '', location: '' });
+    const message = whatsappMessage;
+
+    window.open(
+      `https://wa.me/916374782293?text=${encodeURIComponent(message)}`,
+      "_blank"
+    );
   };
 
   return (
@@ -27,14 +38,14 @@ function Contact() {
             <div className="interactive-card text-center p-4">
               <i className="bi bi-telephone text-info fs-2 mb-2 d-block"></i>
               <h6 className="fw-bold mb-1">Call Academy</h6>
-              <a href="tel:+919876543210" className="text-decoration-none fw-semibold" style={{ color: 'var(--sky-primary)' }}>+91 98765 43210</a>
+              <a href="tel:+916374782293" className="text-decoration-none fw-semibold" style={{ color: 'var(--sky-primary)' }}>+91 63747 82293</a>
             </div>
           </div>
           <div className="col-12 col-sm-6 col-md-4">
             <div className="interactive-card text-center p-4">
               <i className="bi bi-whatsapp text-success fs-2 mb-2 d-block"></i>
               <h6 className="fw-bold mb-1">WhatsApp Matrix</h6>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-semibold text-success">Chat Instantly</a>
+              <a href="https://wa.me/916374782293" target="_blank" rel="noopener noreferrer" className="text-decoration-none fw-semibold text-success">Chat Instantly</a>
             </div>
           </div>
         </div>
@@ -75,7 +86,7 @@ function Contact() {
                     <option value="Alta-Vida">Alta Vida Apartment Arenas</option>
                   </select>
                 </div>
-                <button type="submit" className="btn btn-custom w-100 fs-6">Submit Trial Roster Induction</button>
+                <button type="submit" className="btn btn-custom w-100 fs-6">Submit</button>
               </form>
             </div>
           </div>

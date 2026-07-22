@@ -12,8 +12,8 @@ function Header({ theme, toggleTheme }) {
             style={{ width: '40px', height: '40px', objectFit: 'cover', border: '2px solid var(--sky-primary)' }}
             onError={(e) => { e.target.style.display = 'none'; }} 
           />
-          <span style={{ color: 'var(--forest-mid)' }}>Williams</span>
-          <span className="fw-light ms-1" style={{ fontSize: '1.1rem' }}>Skating</span>
+          <span style={{ color: 'var(--forest-mid)' }}>Williams </span>
+          <span className="fw-light ms-1" style={{ fontSize: '1.1rem' }}>Inline Skating</span>
         </a>
         
         <div className="d-flex align-items-center order-lg-3">
