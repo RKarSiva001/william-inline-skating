@@ -12,7 +12,13 @@ Location: {location}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const message = whatsappMessage;
+    const message = `--------------------------------
+**New Skater Registration**
+--------------------------------
+Name: {name}
+Phone: {phone}
+Location: {location}`;
+
 
     window.open(
       `https://wa.me/916374782293?text=${encodeURIComponent(message)}`,
