@@ -18,8 +18,7 @@ Location: {location}`;
 
 Name: ${form.name}
 Phone: ${form.phone}
-Location: ${form.location}
-`;
+Location: ${form.location}`;
 
     window.open(
       `https://wa.me/916374782293?text=${encodeURIComponent(message)}`,
