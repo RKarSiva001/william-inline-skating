@@ -16,9 +16,9 @@ Location: {location}`;
 ||||New Registration Request||||
 ||||||||||||||||||||||||||||||||
 
-Name: ${form.name}
-Phone: ${form.phone}
-Location: ${form.location}`;
+Name: ${formData.name}
+Phone: ${formData.phone}
+Location: ${formData.location}`;
 
     window.open(
       `https://wa.me/916374782293?text=${encodeURIComponent(message)}`,
