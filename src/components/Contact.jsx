@@ -12,13 +12,14 @@ Location: {location}`;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const message = `--------------------------------
-**New Skater Registration**
---------------------------------
-Name: {name}
-Phone: {phone}
-Location: {location}`;
+    const message = `||||||||||||||||||||||||||||||||
+||||New Registration Request||||
+||||||||||||||||||||||||||||||||
 
+Name: ${form.name}
+Phone: ${form.phone}
+Location: ${form.location}
+`;
 
     window.open(
       `https://wa.me/916374782293?text=${encodeURIComponent(message)}`,
